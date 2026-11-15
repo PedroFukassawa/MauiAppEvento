@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEvento.View.EventoCadastrado"
+             Title="EventoCadastrado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="LightGray">
+
+    <VerticalStackLayout Padding="10"
+                         Spacing="10"
+                         VerticalOptions="Center">
+
+        <Label 
+              Text="Resumo do Evento"
+              FontFamily="RalewayVariable"
+              FontSize="38"
+              HorizontalTextAlignment="Center"
+              VerticalTextAlignment="Center"/>
+
+        <Border StrokeShape="RoundRectangle 7, 7, 7, 7" BackgroundColor="White" Padding="3" WidthRequest="350" HeightRequest="80" Margin="0, 0, 0, 5">
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <Grid RowDefinitions="auto, auto"
+                      ColumnDefinitions="*, *">
+
+                    <Label Text="Nome do Evento:"
+                           FontFamily="RalewayVariable"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Grid.Column="0" Grid.Row="0"/>
+
+                    <Label Text="{Binding NomeEvento}" 
+                           Grid.Column="0" Grid.Row="1"
+                           FontSize="16"
+                           TextColor="#4c81c7"
+                           HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Nome do Local:"
+                           FontFamily="RalewayVariable"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           Grid.Column="1" Grid.Row="0"/>
+
+                    <Label Text="{Binding LocalEvento}" 
+                           Grid.Column="1" Grid.Row="1"
+                           FontSize="16"
+                           TextColor="#4c81c7"
+                           HorizontalTextAlignment="Center"/>
+
+                </Grid>
+            </VerticalStackLayout>
+
+        </Border>
+
+        <Border StrokeShape="RoundRectangle 7, 7, 7, 7" BackgroundColor="White" Padding="3" WidthRequest="350" HeightRequest="80" Margin="0, 0, 0, 5">
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <Grid RowDefinitions="auto, auto"
+               ColumnDefinitions="*, *, *">
+
+                    <Label Text="Data Inicial:"
+                            FontFamily="RalewayVariable"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Column="0" Grid.Row="0"/>
+
+                    <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}" 
+                            Grid.Column="0" Grid.Row="1"
+                            FontSize="16"
+                            TextColor="#4c81c7"
+                            HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Data Final:"
+                            FontFamily="RalewayVariable"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Column="1" Grid.Row="0"/>
+
+                    <Label Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}" 
+                            Grid.Column="1" Grid.Row="1"
+                            FontSize="16"
+                            TextColor="#4c81c7"
+                            HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Tempo Total (em dias):"
+                            FontFamily="RalewayVariable"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Column="2" Grid.Row="0"/>  
+
+                    <Label Text="{Binding Duracao.Days}" 
+                            Grid.Column="2" Grid.Row="1"
+                            FontSize="16"
+                            TextColor="#4c81c7"
+                            HorizontalTextAlignment="Center"/>
+
+                </Grid>
+            </VerticalStackLayout>
+
+        </Border>
+
+        <Border StrokeShape="RoundRectangle 7, 7, 7, 7" BackgroundColor="White" Padding="3" WidthRequest="350" HeightRequest="80" Margin="0, 0, 0, 5">
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <Grid RowDefinitions="auto, auto"
+               ColumnDefinitions="*, *, *">
+
+                    <Label Text="Número de Participantes:"
+                            FontFamily="RalewayVariable"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Column="0" Grid.Row="0"/>
+
+                    <Label Text="{Binding QntParticipantes}" 
+                            Grid.Column="0" Grid.Row="1"
+                            FontSize="16"
+                            TextColor="#4c81c7"
+                            HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Custo por Participante:"
+                            FontFamily="RalewayVariable"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Column="1" Grid.Row="0"/>
+
+                    <Label Text="{Binding CustoPorParticipante}" 
+                            Grid.Column="1" Grid.Row="1"
+                            FontSize="16"
+                            TextColor="#4c81c7"
+                            HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Custo Total (em reais):"
+                            FontFamily="RalewayVariable"
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Column="2" Grid.Row="0"/>
+
+                    <Label Text="{Binding CustoTotal}" 
+                            Grid.Column="2" Grid.Row="1"
+                            FontSize="16"
+                            TextColor="#4c81c7"
+                            HorizontalTextAlignment="Center"/>
+
+                </Grid>
+            </VerticalStackLayout>
+
+        </Border>
+
+        <Button Text="Voltar" BackgroundColor="#317bde" WidthRequest="120" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

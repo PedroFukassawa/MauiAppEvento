@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEvento.View.CadastroEvento"
+             Title="CadastroEvento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="LightGray">
+
+
+    <VerticalStackLayout Padding="10"
+                         Spacing="10">
+        <Label 
+            Text="Cadastro de Evento"
+            FontFamily="RalewayVariable"
+            FontSize="40"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center" />
+
+        <Border StrokeShape="RoundRectangle 7, 7, 7, 7" Padding="3" BackgroundColor="White">
+            <VerticalStackLayout>
+                <Label Text="Nome do Evento"
+                       FontFamily="RalewayVariable"
+                       FontSize="Subtitle" 
+                       Margin="10, 10, 0, 0"/>
+                <Entry x:Name="txt_evento" Placeholder="Digite o nome do Evento"
+                       Margin="10, 2, 10, 10"/>
+
+                <Label Text="Local do Evento"
+                       FontFamily="RalewayVariable"
+                       FontSize="Subtitle"
+                       Margin="10, 10, 0, 0"/>
+                <Entry x:Name="txt_local" Placeholder="Digite o nome do Local"
+                       Margin="10, 2, 10 ,10" />
+
+
+                <Border Padding="10"
+                        Margin="10, 5, 10, 10">
+
+                    <VerticalStackLayout Spacing="10">
+
+                            <Label Text="Período do Evento"
+                                       FontSize="Subtitle" 
+                                       FontFamily="RalewayVariable"/>
+
+                        <Grid RowDefinitions="*, *"
+                                      ColumnDefinitions="*, *"
+                                      RowSpacing="10" ColumnSpacing="10" Margin="10">
+
+                            <HorizontalStackLayout Grid.Column="0" Grid.Row="0">
+                                      <Label Text="Data de Início:" 
+                                             VerticalTextAlignment="Center"
+                                             Margin="0, 0, 10, 0"/>
+                                
+                                      <DatePicker x:Name="dtpck_inicio"
+                                          Format="dd/MM/yyyy"
+                                          DateSelected="dtpck_inicio_DateSelected"
+                                          BackgroundColor="#edebe4"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Grid.Column="0" Grid.Row="1">
+
+                                <Label Text="Data de término:" 
+                                       VerticalTextAlignment="Center"
+                                       Margin="0, 0, 10, 0"/>
+                                
+                                <DatePicker x:Name="dtpck_termino"
+                                    Format="dd/MM/yyyy" 
+                                    BackgroundColor="#edebe4"/>
+                            </HorizontalStackLayout>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Grid RowDefinitions="Auto"
+                      ColumnDefinitions="2*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                       Text="Participantes:"
+                       FontSize="Subtitle"
+                       FontFamily="RalewayVariable"
+                       Margin="10, 5, 0, 5" />
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                       Text="{Binding Value}"
+                       BindingContext="{x:Reference stp_participantes}"
+                       FontSize="18"
+                       Margin="10, 5, 0, 5"/>
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                       x:Name="stp_participantes"
+                       Minimum="0"
+                       Maximum="30"   
+                       Increment="1"
+                       Margin="0, 0, 0, 5"/>
+                </Grid>
+
+                <Label Text="Custo por participante"
+                       FontFamily="RalewayVariable"
+                       FontSize="Subtitle"
+                       Margin="10, 5, 0, 0" />
+                <Entry Placeholder="Exemplo: 100"
+                       Keyboard="Numeric" 
+                       Margin="10, 0, 0, 5" 
+                       x:Name="txt_custoparticipante"/>
+
+
+                <Button Text="Avançar" BackgroundColor="#317bde" Margin="0, 5, 0, 5" WidthRequest="250" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+            </VerticalStackLayout>
+
+        </Border>
+
+    </VerticalStackLayout>
+
+</ContentPage>
